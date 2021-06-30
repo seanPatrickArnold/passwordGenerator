@@ -49,8 +49,9 @@ body header {
 }
 
 #password-display-element {
-  width: 90%;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #button-div {

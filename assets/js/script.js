@@ -72,6 +72,7 @@ var generatePassword = function () {
     }
     
     passwordDisplayElement.textContent = passwordGenerator.password
+    passwordDisplayElement.setAttribute('width', '100%')
 }
 
 /*Ask user to respond to a series of confirms and prompts that are 
