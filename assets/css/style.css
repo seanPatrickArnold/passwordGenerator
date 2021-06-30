@@ -47,7 +47,9 @@ body header {
   justify-content: center;
 }
 
-#password-text-field h3 {
+#password-display-element {
+  width: 100%;
+  text-align: center;
 }
 
 #button-div {
