@@ -58,12 +58,15 @@ var generatePassword = function () {
                                         ]
     passwordGenerator.characterTypesArray = []
 
+    /*Populate characterTypesArray*/
     for (i=0; i <passwordGenerator.conditionsArray.length; i++) {
         if (promptState[passwordGenerator.conditionsArray[i]]) {
             passwordGenerator.characterTypesArray.push(passwordGenerator.conditionsArray[i].split(/(?=[A-Z])/)[passwordGenerator.conditionsArray[i].split(/(?=[A-Z])/).length-1]);
         }
     }
     
+    /*Add random characters from a randomly chosen array from the
+    selected charactersets*/
     for (i=0; i<promptState.promptNumberOfCharactersS8E128-1; i++) {
         passwordGenerator.randomCharacterTypeIndex = Math.floor(Math.random()*(passwordGenerator.characterTypesArray.length));
         passwordGenerator.randomArray = passwordGenerator[passwordGenerator.characterTypesArray[passwordGenerator.randomCharacterTypeIndex]];
@@ -72,7 +75,7 @@ var generatePassword = function () {
     }
     
     passwordDisplayElement.textContent = passwordGenerator.password
-    passwordDisplayElement.setAttribute('width', '100%')
+    passwordDisplayElement.setAttribute('width', '90%')
 }
 
 /*Ask user to respond to a series of confirms and prompts that are 
