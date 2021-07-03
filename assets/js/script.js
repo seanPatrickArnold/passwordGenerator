@@ -28,7 +28,7 @@ var generatePassword = function () {
         promptState.setOrReset();
         var propertyStringArray = [];
         var minimumCriteriaSelected = false;
-        while (promptState.index < promptState.propertiesArray.length) {
+        while (promptState.index < Object.values(promptState).length) {
             promptState = promptUser(promptState, propertyStringArray);
         }
 
@@ -58,9 +58,13 @@ var generatePassword = function () {
                                         ]
     passwordGenerator.characterTypesArray = []
 
-    for (i=0; i <passwordGenerator.conditionsArray.length; i++) {
-        if (promptState[passwordGenerator.conditionsArray[i]]) {
-            passwordGenerator.characterTypesArray.push(passwordGenerator.conditionsArray[i].split(/(?=[A-Z])/)[passwordGenerator.conditionsArray[i].split(/(?=[A-Z])/).length-1]);
+    var object = promptState;
+    var item = passwordGenerator.conditionsArray;
+    var gen = passwordGenerator;
+
+    for (i=0; i < item.length; i++) {
+        if (object[item[i]]) {
+            gen.characterTypesArray.push(item[i].split(/(?=[A-Z])/)[item[i].split(/(?=[A-Z])/).length-1]);
         }
     }
     
@@ -79,7 +83,7 @@ var generatePassword = function () {
 populated using a passed object promptState that is decribed
 by an array of properties*/
 var promptUser = function (promptState, propertyStringArray) {
-    propertyStringArray = promptState.propertiesArray[promptState.index].split(/(?=[A-Z])/);
+    propertyString = promptState.propertiesArray[promptState.index].split(/(?=[A-Z])/);
     promptState.sliceState = {};
     switch (propertyStringArray[0]) {
         case 'confirm':
