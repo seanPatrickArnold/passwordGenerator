@@ -24,6 +24,10 @@ var generatePassword = function () {
         }
     }
     
+    /*Iterate through promptState criteria, advancing the state of the
+    promptState object repeating if necessary determined by a
+    boolean that is made true if the minimum criteeia is selected
+    by the user. */
     while (!minimumCriteriaSelected) {
         promptState.setOrReset();
         var propertyStringArray = [];
