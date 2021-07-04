@@ -3,7 +3,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: sans-serif;
   color: rgb(100, 100, 100);
 }
 
